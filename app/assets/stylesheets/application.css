@@ -17,9 +17,11 @@
    background-color: #B0F3FF;
  }
 
- .main_container {
+ .main_content {
    background-color: #FFFFFF;
    border-radius: 0.5em;
    text-align: center;
    padding: 0.5em;
+   width: 50%;
+   margin: auto;
  }
