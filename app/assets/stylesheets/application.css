@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ .main_container {
+   background-color: #B0F3FF;
+ }

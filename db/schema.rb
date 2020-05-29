@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_134436) do
+ActiveRecord::Schema.define(version: 2020_05_28_141411) do
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "exercise_type"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "routine_exercises", force: :cascade do |t|
+    t.integer "routine_id"
+    t.integer "exercise_id"
+    t.integer "reps"
+    t.integer "sets"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.string "name"
+    t.integer "times_per_week"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
