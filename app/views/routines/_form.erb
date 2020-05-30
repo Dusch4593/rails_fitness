@@ -1,3 +1,12 @@
-<%= form_with model: @routines do |f| %>
+<%= label_tag :name %>
+<%= text_field_tag :name %>
+<br>
 
-<% end %>
+<%= label_tag :times_per_week %>
+<%= number_field_tag :times_per_week, nil, min: 0 %>
+<br>
+
+<h3>Add Some Existing Exercises</h3>
+<%= collection_check_boxes :routine, :routine_exercise_ids, Exercise.all, :id, :name %>
+<br>
+<%= submit_tag %>
