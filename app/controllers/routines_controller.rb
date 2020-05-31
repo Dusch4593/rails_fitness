@@ -22,6 +22,7 @@ class RoutinesController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
