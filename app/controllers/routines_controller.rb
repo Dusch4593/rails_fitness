@@ -1,4 +1,5 @@
 class RoutinesController < ApplicationController
+  before_action :authenticate_user!
   def new
     @routine = Routine.new
   end
