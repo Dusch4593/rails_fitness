@@ -7,9 +7,9 @@ class Routine < ApplicationRecord
   validates :name, presence: true
 
   def exercises_attributes=(exercise_attributes)
-  exercise_attributes.values.each do |exercise_attribute|
-    category = Exercise.find_or_create_by(exercise_attribute)
-    self.exercises << exercise
+    exercise_attributes.values.each do |exercise_attribute|
+      category = Exercise.find_or_create_by(exercise_attribute)
+      self.exercises << exercise
+    end
   end
-
 end
