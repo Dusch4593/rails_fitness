@@ -7,7 +7,7 @@
 <br>
 
 <h3>Add Some Existing Exercises</h3>
-<%= collection_check_boxes :routine, :routine_exercise_ids, Exercise.all, :id, :name do |e| %>
+<%= collection_check_boxes :routine, :exercise_ids, Exercise.all, :id, :name do |e| %>
   <%= e.check_box %>
   <%= e.object.name %>
   <br>
@@ -15,9 +15,29 @@
 <br>
 
 <h3>Create a New Exercise</h3>
-<%= render "exercises/form" %>
+<%= fields_for :exercises, @routine.exercises.build do |exercises_fields| %>
+  <%= exercises_fields.label :name %>
+  <%= exercises_fields.text_field :name %>
+  <br>
+
+  <%= exercises_fields.label :exercise_type %>
+  <%= exercises_fields.text_field :exercise_type %>
+  <br>
+
+  <%= exercises_fields.label :description %>
+  <%= exercises_fields.text_area :description %>
+  <br>
+
+  <%= exercises_fields.fields_for :routine_exercises, @routine.routine_exercises.build do |r_exercises_fields| %>
+    <%= r_exercises_fields.label :sets %>
+    <%= r_exercises_fields.number_field :sets, min: 0 %>
+    <br>
+
+    <%= r_exercises_fields.label :reps %>
+    <%= r_exercises_fields.number_field :reps, min: 0 %>
+    <br>
+  <% end %>
+<% end %>
 <br>
-
-
 
 <%= submit_tag %>

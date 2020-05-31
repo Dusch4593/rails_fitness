@@ -1,5 +1,6 @@
 class RoutinesController < ApplicationController
   def new
+    @routine = Routine.new
   end
 
   def index
@@ -11,7 +12,13 @@ class RoutinesController < ApplicationController
   end
 
   def create
-
+    @routine = Routine.new(routine_params)
+    if @routine.valid?
+      @routine.save
+      redirect_to routines_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,6 +32,12 @@ class RoutinesController < ApplicationController
 
   private
   def routine_params
-    
+    params.require(:routine).permit(
+      :name,
+      :times_per_week,
+      :exercise_ids[],
+      :exercises_routine_exercises_sets[],
+      :exercises_routine_exercises_reps[]
+    )
   end
 end
