@@ -28,3 +28,4 @@ Any and all suggesting are welcome! Please feel free to [submit a pull-request](
 or [report a problem](https://github.com/Dusch4593/flatiron_fitness_rails_app/issues) in the "Issues" tab.
 
 # License
+This app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
