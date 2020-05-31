@@ -7,6 +7,17 @@
 <br>
 
 <h3>Add Some Existing Exercises</h3>
-<%= collection_check_boxes :routine, :routine_exercise_ids, Exercise.all, :id, :name %>
+<%= collection_check_boxes :routine, :routine_exercise_ids, Exercise.all, :id, :name do |e| %>
+  <%= e.check_box %>
+  <%= e.object.name %>
+  <br>
+<% end %>
 <br>
+
+<h3>Create a New Exercise</h3>
+<%= render "exercises/form" %>
+<br>
+
+
+
 <%= submit_tag %>

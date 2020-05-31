@@ -9,4 +9,22 @@ class RoutinesController < ApplicationController
       redirect_to welcome_page_path
     end
   end
+
+  def create
+
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def delete
+  end
+
+  private
+  def routine_params
+    
+  end
 end

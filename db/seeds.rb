@@ -17,7 +17,8 @@ joe = User.create(id: 3, name: "Joe", email: "joe@example.com", password: "passw
 ryan = User.create(id: 4, name: "Ryan", email: "ryan@example.com", password: "password")
 
 # Routines for Brandon
-brandon_routine = brandon.routines.create(name: "Afternoon Struggle", times_per_week: 3)
+
+# Routine.create(id: 1, name: "Afternoon Struggle", times_per_week: 3, user_id: 1)
 
 
 # Routines for Greg
