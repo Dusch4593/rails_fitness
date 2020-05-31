@@ -5,4 +5,11 @@ class Routine < ApplicationRecord
   accepts_nested_attributes_for :routine_exercises, :exercises
 
   validates :name, presence: true
+
+  # def exercises_attributes=(exercise_attributes)
+  # exercise_attributes.values.each do |exercise_attribute|
+  #   category = Exercise.find_or_create_by(exercise_attribute)
+  #   self.categories << category
+  # end
+
 end
