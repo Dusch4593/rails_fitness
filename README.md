@@ -8,7 +8,7 @@ many routines, which can contain many exercises.
 
 2. Run `bundle install` for gem setup
 
-3. Run `rails db:migrate` to setup database tables
+3. Run `rails db:migrate` to setup database and tables
 
 4. Run `rails db:seed` to install seed (includes default exercises to get started) (NOTE: This should only be run **once**)
 
@@ -16,6 +16,11 @@ many routines, which can contain many exercises.
 
 # Usage
 At the root page, the User may choose to either sign in to an existing account or sign up for a new one. Whether they login or signup, the User has the option of doing so with third-party authentication (through sites like Facebook and GitHub).
+
+**IMPORTANT NOTE** : *If you choose to sign up/ login through an existing account, please stick with whatever account  
+you choose from that point on. If you sign out and try to login again through a different existing account, you  
+will be redirected to the signup page, from where you can just click the appropriate login link to log in  
+normally.*
 
 The User is then taken to their `/routines` page where they'll see a list of their routines. They can click on any one to see more information. Within an individual routine page (`/routines/:id`) the User will routine info along with a list of its exercises.
 
