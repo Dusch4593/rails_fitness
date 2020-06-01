@@ -8,7 +8,7 @@ class Routine < ApplicationRecord
 
   def exercises_attributes=(exercise_attributes)
     exercise_attributes.values.each do |exercise_attribute|
-      category = Exercise.find_or_create_by(exercise_attribute)
+      exercise = Exercise.find_or_create_by(exercise_attribute)
       self.exercises << exercise
     end
   end
