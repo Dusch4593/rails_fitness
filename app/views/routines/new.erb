@@ -1,5 +1,7 @@
+<%= link_to "#{current_user.name}'s Routines", routines_path %>
+
 <h1>New Routine</h1>
 
-<%= form_with model: routine do %>
+<%= form_with model: @routine do %>
   <%= render partial: "routines/form" %>
 <% end %>
