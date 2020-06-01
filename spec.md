@@ -11,7 +11,7 @@ Specs:
  - [X] Include signup (through `devise` gem)
  - [X] Include login (through `devise` gem)
  - [X] Include logout (through `devise` gem)
- - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+ - [X] Include third party signup/login (how e.g. Devise/OmniAuth)
  - [ ] Include nested resource show or index (URL e.g. routines/2/routine_exercises (index) or routines/2/routine_exercises/5 (show))
  - [ ] Include nested resource "new" form (URL e.g. routines/1/routine_exercises/new)
  - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
