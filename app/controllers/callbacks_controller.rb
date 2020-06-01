@@ -3,7 +3,7 @@ class CallbacksController < ApplicationController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     #binding.pry
     if @user.persisted?
-      sign_in_and_redirect @user, to: routines_path
+      sign_in_and_redirect @user
     else
       # binding.pry
       flash[:error] = "There was a problem signing you in through Facebook. Please register or try signing in later."
@@ -24,7 +24,7 @@ class CallbacksController < ApplicationController
   def github
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
-      sign_in_and_redirect @user
+      sign_in_and_redirect @user, to: "welcome_page"
     else
       flash[:error] = "There was a problem signing you in through GitHub. Please register or try signing in later."
       redirect_to new_user_registration_url
@@ -32,7 +32,7 @@ class CallbacksController < ApplicationController
   end
 
   def failure
-    flash[:error] = "There was a problem signing you in. Please try signing in later."
+    flash[:error] = "There was a problem signing you in. Please try again later."
     redirect_to new_user_registration_url
   end
 end
