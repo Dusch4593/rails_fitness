@@ -9,6 +9,7 @@
 User.destroy_all
 Routine.destroy_all
 Exercise.destroy_all
+RoutineExercise.destroy_all
 
 # Users
 brandon = User.create(id: 1, name: "Brandon", email: "brandon@example.com", password: "password")
