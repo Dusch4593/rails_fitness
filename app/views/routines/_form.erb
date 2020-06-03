@@ -1,43 +1,50 @@
-<%= label_tag :name %>
-<%= text_field_tag :name %>
-<br>
-
-<%= label_tag :times_per_week %>
-<%= number_field_tag :times_per_week, nil, min: 0 %>
-<br>
-
-<h3>Add Some Existing Exercises</h3>
-<%= collection_check_boxes :routine, :exercise_ids, Exercise.all, :id, :name do |e| %>
-  <%= e.check_box %>
-  <%= e.object.name %>
+<% if routine.errors.any? %>
+  <h5><%= routine.errors.full_messages.to_sentence %></h5>
   <br>
+  <h5><%= params.inspect %></h5>
 <% end %>
-<br>
 
-<h3>Create a New Exercise</h3>
-<%= fields_for :exercises, @routine.exercises.build do |exercises_fields| %>
-  <%= exercises_fields.label :name %>
-  <%= exercises_fields.text_field :name %>
+<%= form_with model: routine, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
   <br>
 
-  <%= exercises_fields.label :exercise_type %>
-  <%= exercises_fields.text_field :exercise_type %>
+  <%= f.label :times_per_week %>
+  <%= f.number_field :times_per_week, min: 0 %>
   <br>
 
-  <%= exercises_fields.label :description %>
-  <%= exercises_fields.text_area :description %>
-  <br>
-
-  <%= exercises_fields.fields_for :routine_exercises, @routine.routine_exercises.build do |r_exercises_fields| %>
-    <%= r_exercises_fields.label :sets %>
-    <%= r_exercises_fields.number_field :sets, min: 0 %>
-    <br>
-
-    <%= r_exercises_fields.label :reps %>
-    <%= r_exercises_fields.number_field :reps, min: 0 %>
+  <h3>Add Some Existing Exercises</h3>
+  <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name do |e| %>
+    <%= e.check_box %>
+    <%= e.object.name %>
     <br>
   <% end %>
-<% end %>
-<br>
+  <br>
 
-<%= submit_tag %>
+  <h3>Create a New Exercise</h3>
+  <%= f.fields_for :exercises, routine.exercises.build do |exercises_fields| %>
+    <%= exercises_fields.label :name %>
+    <%= exercises_fields.text_field :name %>
+    <br>
+
+    <%= exercises_fields.label :exercise_type %>
+    <%= exercises_fields.text_field :exercise_type %>
+    <br>
+
+    <%= exercises_fields.label :description %>
+    <%= exercises_fields.text_area :description %>
+    <br>
+
+    <%= exercises_fields.fields_for :routine_exercises, routine.routine_exercises.build do |r_exercises_fields| %>
+      <%= r_exercises_fields.label :sets %>
+      <%= r_exercises_fields.number_field :sets, min: 0 %>
+      <br>
+
+      <%= r_exercises_fields.label :reps %>
+      <%= r_exercises_fields.number_field :reps, min: 0 %>
+      <br>
+    <% end %>
+  <% end %>
+  <br>
+  <%= f.submit %>
+<% end %>

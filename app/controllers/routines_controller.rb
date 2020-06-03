@@ -1,7 +1,7 @@
 class RoutinesController < ApplicationController
   before_action :authenticate_user!
   def new
-    @routine = Routine.new
+    @routine = current_user.routines.build
   end
 
   def index
@@ -13,9 +13,8 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @routine = Routine.new(routine_params)
-    if @routine.valid?
-      @routine.save
+    @routine = current_user.routines.build(routine_params)
+    if @routine.save
       redirect_to routines_path
     else
       render :new
@@ -34,12 +33,6 @@ class RoutinesController < ApplicationController
 
   private
   def routine_params
-    params.require(:routine).permit(
-      :name,
-      :times_per_week,
-      :exercise_ids[],
-      :exercises_routine_exercises_sets[],
-      :exercises_routine_exercises_reps[]
-    )
+    params.require(:routine).permit(:name, :times_per_week, exercise_ids:[], exercises_attributes:[:name, :exercise_type, :description])
   end
 end
