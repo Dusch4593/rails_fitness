@@ -1,0 +1,6 @@
+<h1><%= @routine.name %></h1>
+
+<% @routine.exercises.uniq.each do |exercise| %>
+  <%= link_to exercise.name, routine_exercise_path(exercise) %> <br>
+  <%= exercise.class %> <br>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= @exercise.name %></h1>
+
+<strong>Type: </strong><%= @exercise.exercise_type %> <br>
+
+<p>
+  <%= @exercise.description %>
+</p>
+
+<strong>Sets: </strong><%= RoutineExercise.find_by(id: @exercise.id).sets %>
+<strong>Reps: </strong><%= RoutineExercise.find_by(id: @exercise.id).reps %>
