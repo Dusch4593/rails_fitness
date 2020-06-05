@@ -14,6 +14,7 @@ class ExercisesController < ApplicationController
   end
 
   def show
+    @exercise = Exercise.find_by(id: params[:id])
   end
 
   def edit
@@ -21,4 +22,5 @@ class ExercisesController < ApplicationController
 
   def delete
   end
+
 end
