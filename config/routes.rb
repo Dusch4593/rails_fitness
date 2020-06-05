@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :routines, only: [:show] do
     # nested resource for exercises
-    resources :exercises, only [:show, :index]
+    resources :exercises, only: [:show, :index]
   end
 
   resources :routines
