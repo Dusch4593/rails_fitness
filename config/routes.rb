@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   # Top to Bottom --> Specific to Less Specific
   get '/welcome', to: "welcome#home", as: "welcome_page"
 
+  resources :routines
 
   resources :routines, only: [:show] do
     # nested resource for exercises
     resources :exercises, only: [:show, :index]
   end
 
-  resources :routines
+
   resources :exercises
 
 
