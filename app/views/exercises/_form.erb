@@ -1,1 +1,31 @@
-Stuff
+<% if exercise.errors.any? %>
+  <h5><%= exercise.errors.full_messages.to_sentence %></h5>
+  <br>
+  <h5><%= params.inspect %></h5>
+<% end %>
+
+<%= form_with model: exercise, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :exercise_type %>
+  <%= f.text_field :exercise_type %>
+  <br>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+
+  <%= f.fields_for :routine_exercises_attributes do |ref| %>
+    <%= ref.label :sets %>
+    <%= ref.number_field :sets, placeholder: "#{@exercise.routine_exercises.all.last.sets}", min: 0 %>
+    <br>
+
+    <%= ref.label :reps %>
+    <%= ref.number_field :reps, placeholder: "#{@exercise.routine_exercises.all.last.reps}", min: 0 %>
+    <br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
