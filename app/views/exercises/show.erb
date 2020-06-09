@@ -7,3 +7,8 @@
 
 <strong>Sets: </strong><%= @routine_exercise.sets %>
 <strong>Reps: </strong><%= @routine_exercise.reps %>
+
+<br>
+
+<%= link_to "Edit Exercise", edit_exercise_path %> <br>
+<%= link_to "Delete Exercise", @exercise, method: :delete %>
