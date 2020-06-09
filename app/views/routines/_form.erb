@@ -16,13 +16,14 @@
   <h3>Add Some Existing Exercises</h3>
   <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name do |e| %>
     <%= e.check_box %>
-    <%= e.object.name %> | <%= e.object.id %>
+    <%= e.object.name %>
     <br>
   <% end %>
   <br>
 
+
   <h3>Create a New Exercise for the Routine</h3>
-  <%= f.fields_for :exercises_attributes, routine.exercises.build do |exercises_fields| %>
+  <%= f.fields_for :exercises_attributes do |exercises_fields| %>
     <%= exercises_fields.label :name %>
     <%= exercises_fields.text_field :name %>
     <br>
@@ -35,16 +36,16 @@
     <%= exercises_fields.text_area :description %>
     <br>
 
-    <%= exercises_fields.fields_for :routine_exercises, routine.routine_exercises.build do |r_exercises| %>
-      <%= r_exercises.label :sets %>
-      <%= r_exercises.number_field :sets, min: 0 %>
+    <%= exercises_fields.fields_for :routine_exercises_attributes do |ref| %>
+      <%= ref.label :sets %>
+      <%= ref.number_field :sets, min: 0 %>
       <br>
 
-      <%= r_exercises.label :reps %>
-      <%= r_exercises.number_field :reps, min: 0 %>
+      <%= ref.label :reps %>
+      <%= ref.number_field :reps, min: 0 %>
       <br>
     <% end %>
-  <% end %>
+<% end %>
 
 
   <%= f.submit %>
