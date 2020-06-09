@@ -1,5 +1,5 @@
 class RoutinesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_routine, only: [:show, :edit, :update, :destroy]
 
   def index
     if user_signed_in?
@@ -36,14 +36,27 @@ class RoutinesController < ApplicationController
   end
 
   def show
-    @routine = Routine.find_by(id: params[:id])
   end
 
   def edit
-    
   end
 
-  def delete
+  def update
+    if @routine.update(routine_params) && !routine_params[:exercises_attributes].empty?
+      routine_params["exercise_ids"].each do |i|
+        next if i.empty?
+        @exercise = Exercise.find_by(id: i)
+        @routine.routine_exercises.find_by(exercise_id: @exercise.id).update(sets: 0, reps: 0)
+      end
+      redirect_to routine_path(@routine)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @routine.destroy
+    redirect_to routines_path
   end
 
   private
@@ -60,5 +73,9 @@ class RoutinesController < ApplicationController
         routine_exercises_attributes: [:id, :sets, :reps]
       ]
     )
+  end
+
+  def set_routine
+    @routine = Routine.find_by(id: params[:id])
   end
 end
