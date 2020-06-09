@@ -3,3 +3,8 @@
   <%= link_to exercise.name, routine_exercise_path(@routine, exercise) %> <br>
   <br>
 <% end %>
+
+<br>
+
+<%= link_to "Edit Routine", edit_routine_path %> <br>
+<%= link_to "Delete Routine", @routine, method: :delete %>
