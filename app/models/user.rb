@@ -8,9 +8,6 @@ class User < ApplicationRecord
 
   has_many :routines
 
-  validates :name, presence: true
-  validates :email, presence: true
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.name = auth.info.name
