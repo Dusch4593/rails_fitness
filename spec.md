@@ -13,7 +13,7 @@ Specs:
  - [X] Include logout (through `devise` gem)
  - [X] Include third party signup/login (how e.g. Devise/OmniAuth)
  - [X] Include nested resource show or index (URL e.g. routines/2/routine_exercises (index) or routines/2/routine_exercises/5 (show))
- - [X] Include nested resource "new" form (URL e.g. routines/1/routine_exercises/new)
+ - [X] Include nested resource "new" form (URL e.g. routines/1/routine_exercises/new) --> Went with "edit", instead
  - [X] Include form display of validation errors (form URL e.g. /recipes/new)
 
 
