@@ -1,12 +1,12 @@
 <% if exercise.errors.any? %>
-  <h5><%= exercise.errors.full_messages.to_sentence %></h5>
+  <h5 class="error"><%= exercise.errors.full_messages.to_sentence %></h5>
   <br>
-  <h5><%= params.inspect %></h5>
 <% end %>
 
 <%= form_with model: exercise, local: true do |f| %>
+  <%= f.hidden_field :routine_id, value: params[:routine_id] %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: exercise.errors.any? ? "error-field" : nil %>
   <br>
 
   <%= f.label :exercise_type %>
@@ -24,8 +24,8 @@
 
     <%= ref.label :reps %>
     <%= ref.number_field :reps, placeholder: "#{@exercise.routine_exercises.all.last.reps}", min: 0 %>
+
     <br>
   <% end %>
-
   <%= f.submit %>
 <% end %>
