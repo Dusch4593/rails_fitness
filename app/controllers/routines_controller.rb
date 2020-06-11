@@ -1,4 +1,5 @@
 class RoutinesController < ApplicationController
+  helper_method :params
   before_action :authenticate_user!, :set_routine, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -42,7 +43,7 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    if @routine.update(routine_params) && !routine_params[:exercises_attributes].empty?
+    if @routine.update(routine_params)
       routine_params["exercise_ids"].each do |i|
         next if i.empty?
         @exercise = Exercise.find_by(id: i)

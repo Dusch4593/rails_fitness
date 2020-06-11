@@ -5,6 +5,18 @@ class Routine < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.beginner_level_routines
+    where('times_per_week <= 3')
+  end
+
+  def self.mid_level_routines
+    where('times_per_week <= 4')
+  end
+
+  def self.intense_level_routines
+    where('times_per_week > 4')
+  end
+
   def exercises_attributes=(exercise)
     if exercise[:name] != "" && exercise[:exercise_type] != "" && exercise[:description] != ""
       new_exercise = self.exercises.build
