@@ -1,12 +1,14 @@
 <% if routine.errors.any? %>
-  <h5><%= routine.errors.full_messages.to_sentence %></h5>
+  <h5 class="error"><%= routine.errors.full_messages.to_sentence %></h5>
   <br>
-  <h5><%= params.inspect %></h5>
 <% end %>
 
 <%= form_with model: routine, local: true do |f| %>
+
+
+
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: routine.errors.any? ? "error-field" : nil %>
   <br>
 
   <%= f.label :times_per_week %>

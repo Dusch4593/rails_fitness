@@ -1,3 +1,4 @@
-<h1>Edit Routine</h1>
+<a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <a href="<%= routine_path(@routine) %>"><%= @routine.name %></a> > Edit
 
+<h1>Edit Routine</h1>
 <%= render "routines/form", routine: @routine %>
