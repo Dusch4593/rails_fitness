@@ -1,10 +1,14 @@
 <a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <%= @routine.name %>
 <h1><%= @routine.name %></h1>
 <h3>Times Per Week: <%= @routine.times_per_week %></h3>
-<% @routine.exercises.each do |exercise| %>
-  <%= link_to exercise.name, routine_exercise_path(@routine, exercise) %> <br>
-  <br>
-<% end %>
+
+<div id="exercise_cards">
+  <% @routine.exercises.each do |exercise| %>
+    <%= link_to exercise.name, routine_exercise_path(@routine, exercise), class: "exercise_card" %> <br>
+    <br>
+  <% end %>
+</div>
+
 
 <br>
 <div class="crud_links">

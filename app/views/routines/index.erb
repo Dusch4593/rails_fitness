@@ -29,9 +29,11 @@
 
 <br>
 
+<div id="routine_cards">
+  <% @routines.each do |routine| %>
+    <%= link_to routine.name, routine, class: "routine_card" %> <br> <br>
+  <% end %>
+</div>
 
-<% @routines.each do |routine| %>
-  <%= link_to routine.name, routine %> <br> <br>
-<% end %>
 
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

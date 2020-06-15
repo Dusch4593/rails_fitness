@@ -69,6 +69,54 @@
    text-decoration: none;
  }
 
+ #routine_cards {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 10em;
+   margin: auto;
+ }
+
+ .routine_card {
+   background-color: #3a3a3a;
+   border: 2px solid black;
+   border-radius: 5px;
+   color: #ffb101;
+   padding: 1em;
+   text-decoration: none;
+   opacity: 0.7;
+   transition: 0.3s;
+ }
+
+ .routine_card:hover {
+   opacity: 1;
+ }
+
+
+ #exercise_cards {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 10em;
+   margin: auto;
+ }
+
+ .exercise_card {
+   background-color: #ffb101;
+   border: 2px solid black;
+   border-radius: 5px;
+   color: #3a3a3a;
+   padding: 1em;
+   text-decoration: none;
+   opacity: 0.7;
+   transition: 0.3s;
+ }
+
+ .exercise_card:hover {
+   opacity: 1;
+ }
+
+
 .crud_links {
   display: flex;
   flex-direction: column;
@@ -77,19 +125,20 @@
   margin: auto;
 }
 
-.crud_link {
-
-
-}
-
 .edit_link {
   border-radius: 3px;
   border: 2px solid black;
   font-weight: bold;
   color: #fff;
-  background-color: #ffb101;
+  background-color: #ff6700;
   padding: 0.5em;
   text-decoration: none;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.edit_link:hover {
+  opacity: 1;
 }
 
 .delete_link {
@@ -100,4 +149,28 @@
   background-color: #d11a2a;
   padding: 0.5em;
   text-decoration: none;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.delete_link:hover {
+  opacity: 1;
+}
+
+
+.submit_link {
+  background-color: #75B74F;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  margin: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.submit_link:hover {
+  opacity: 1;
 }
