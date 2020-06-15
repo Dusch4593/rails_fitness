@@ -11,6 +11,7 @@
 <strong>Reps: </strong><%= @routine_exercise.reps %>
 
 <br>
-
-<%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise) %> <br>
-<%= link_to "Delete Exercise", @exercise, method: :delete %>
+<div class="crud_links">
+  <%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise), class: "edit_link" %> <br>
+  <%= link_to "Delete Exercise", @exercise, class: "delete_link", method: :delete %>
+</div>

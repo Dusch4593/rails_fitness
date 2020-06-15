@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show, :edit, :update, :destroy]
-  before_action :set_routine, only: [:show, :edit, :updatex]
-  before_action :set_routine_exercise, only: [:show, :edit, :update, :destroy]
+  before_action :set_exercise, only: [:show, :edit, :update]
+  before_action :set_routine, only: [:show, :edit, :update]
+  before_action :set_routine_exercise, only: [:show, :edit, :update]
 
 
   def index
@@ -36,6 +36,7 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @exercise.destroy
     redirect_to routines_path
   end

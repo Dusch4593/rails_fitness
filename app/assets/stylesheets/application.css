@@ -68,3 +68,36 @@
    border-radius: 2.5px;
    text-decoration: none;
  }
+
+.crud_links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10em;
+  margin: auto;
+}
+
+.crud_link {
+
+
+}
+
+.edit_link {
+  border-radius: 3px;
+  border: 2px solid black;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ffb101;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+.delete_link {
+  border-radius: 3px;
+  border: 2px solid black;
+  font-weight: bold;
+  color: #fff;
+  background-color: #d11a2a;
+  padding: 0.5em;
+  text-decoration: none;
+}
