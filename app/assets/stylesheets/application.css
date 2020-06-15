@@ -37,3 +37,34 @@
    border-color: red;
    padding: 0;
  }
+
+#login_links {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  margin: auto;
+}
+
+#facebook_btn {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 0.25em;
+  border-radius: 2.5px;
+  text-decoration: none;
+}
+
+ #google_btn {
+   background-color: #db3236;
+   color: #fff;
+   padding: 0.25em;
+   border-radius: 2.5px;
+   text-decoration: none;
+ }
+
+ #github_btn {
+   background-color: #7dbbe6;
+   color: #fff;
+   padding: 0.25em;
+   border-radius: 2.5px;
+   text-decoration: none;
+ }
