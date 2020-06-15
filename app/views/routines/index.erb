@@ -1,5 +1,10 @@
 <h1>Hey, <%= current_user.name %>!</h1>
-<%= link_to "Create Routine", new_routine_path %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<br>
+<br>
+<br>
+
+<%= link_to "Create Routine", new_routine_path, class: "submit_link" %>
 
 
 
@@ -34,6 +39,3 @@
     <%= link_to routine.name, routine, class: "routine_card" %> <br> <br>
   <% end %>
 </div>
-
-
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>

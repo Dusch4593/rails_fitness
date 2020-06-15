@@ -38,6 +38,43 @@
    padding: 0;
  }
 
+ #home_page_links {
+   display: flex;
+   flex-direction: row;
+   padding: 1em;
+   justify-content: center;
+ }
+
+ #signup_link {
+   background-color: #75B74F;
+   color: #fff;
+   padding: 0.5em;
+   border-radius: 2.5px;
+   text-decoration: none;
+   margin-right: 0.5em;
+   opacity: 0.7;
+   transition: 0.3s;
+ }
+
+ #signup_link:hover {
+   opacity: 1;
+ }
+
+ #regular_login_link {
+   background-color: #7dbbe6;
+   color: #fff;
+   padding: 0.5em;
+   border-radius: 2.5px;
+   text-decoration: none;
+   margin-right: 0.5em;
+   opacity: 0.7;
+   transition: 0.3s;
+ }
+
+ #regular_login_link:hover {
+   opacity: 1;
+ }
+
 #login_links {
   display: flex;
   flex-direction: column;
@@ -164,6 +201,7 @@
   border-radius: 3px;
   color: #fff;
   font-weight: bold;
+  text-decoration: none;
   margin: 1em;
   padding: 0.5em;
   cursor: pointer;
