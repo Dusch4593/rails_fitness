@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show, :edit, :update]
+  before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   before_action :set_routine, only: [:show, :edit, :update]
   before_action :set_routine_exercise, only: [:show, :edit, :update]
 

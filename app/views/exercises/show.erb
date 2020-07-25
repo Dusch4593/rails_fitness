@@ -1,3 +1,4 @@
+
 <a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <a href="<%= routine_path(@routine) %>"><%= @routine.name %></a> > <%= @exercise.name %>
 
 <h1><%= @exercise.name %></h1>
@@ -13,5 +14,5 @@
 <br>
 <div class="crud_links">
   <%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise), class: "edit_link" %> <br>
-  <%= link_to "Delete Exercise", @exercise, class: "delete_link", method: :delete %>
+  <%= link_to "Delete Exercise", delete_routine_exercise_path(@routine, @exercise ), class: "delete_link", method: :delete %>
 </div>
