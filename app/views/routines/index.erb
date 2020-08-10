@@ -7,11 +7,6 @@
 <%= link_to "Create Routine", new_routine_path, class: "submit_link" %>
 
 
-
-
-
-
-<h2>List of Routines</h2>
 <h4>Filter by: </h4>
 <%= form_tag routines_path, method: "get" do %>
   <%= select_tag "routine", options_for_select(["Beginner-Level", "Mid-Level", "Intense-Level"]), include_blank: true %>
@@ -33,6 +28,8 @@
 
 
 <br>
+
+<h2>List of Routines</h2>
 
 <div id="routine_cards">
   <% @routines.each do |routine| %>

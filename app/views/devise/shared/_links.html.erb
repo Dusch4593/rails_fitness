@@ -1,5 +1,5 @@
 <%# <%- if controller_name != 'sessions' %>
-  <%# end %> 
+  <%# end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", new_registration_path(resource_name) %><br />
@@ -19,7 +19,7 @@
 
 <%- if devise_mapping.omniauthable? %>
   <br>
-  <div id="login_links">
+  <div id="login-links">
     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, id: "facebook_btn" %> <br>
     <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, id: "google_btn" %> <br>
     <%= link_to "Sign in with GitHub", user_github_omniauth_authorize_path, id: "github_btn" %> <br>
