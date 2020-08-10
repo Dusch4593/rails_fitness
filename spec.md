@@ -22,3 +22,10 @@ Confirm:
  - [X] Limited logic in controllers
  - [X] Views use helper methods if appropriate
  - [X] Views use partials if appropriate --> Partials for app/views/routines and app/views/exercises
+
+
+ Post-work Goals:
+- [ ] Restyle each page to (responsively) take up a larger portion of whatever screen it's rendered on
+- [ ] Try to incorporate 1 or 2 new gems
+- [ ] Write a new blog about the experience of refactoring this project past MVP
+- [ ] Deploy to Heroku (include links and demos in portfolio and resume)
