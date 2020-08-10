@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# after running `bundle exec rails db:seed`, all tables will "self-destruct" by
+# destroying all their existing entries
 Routine.destroy_all
 Exercise.destroy_all
 RoutineExercise.destroy_all
