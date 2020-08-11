@@ -20,6 +20,8 @@ class RoutinesController < ApplicationController
     @routine = current_user.routines.build(routine_params)
     if @routine.save && !routine_params["exercise_ids"].empty?
 
+
+
       # If existing exercises were checked, loop through the ids and update routine_exercise object
       routine_params["exercise_ids"].each do |i|
         next if i.empty?
@@ -71,6 +73,7 @@ class RoutinesController < ApplicationController
         :name,
         :exercise_type,
         :description,
+        :image,
         routine_exercises_attributes: [:id, :sets, :reps]
       ]
     )

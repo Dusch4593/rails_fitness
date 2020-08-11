@@ -36,14 +36,13 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @exercise.destroy
     redirect_to routines_path
   end
 
   private
   def exercise_params
-    params.require(:exercise).permit(:id, :name, :exercise_type, :description, :routine_exercises_attributes => [:id, :routine_id, :sets, :reps])
+    params.require(:exercise).permit(:id, :name, :exercise_type, :description, :image, :routine_exercises_attributes => [:id, :routine_id, :sets, :reps])
   end
 
   def set_exercise

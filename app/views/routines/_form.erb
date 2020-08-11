@@ -4,8 +4,6 @@
 
 <%= form_with model: routine, local: true do |f| %>
 
-
-
   <%= f.label :name %>
   <%= f.text_field :name, class: routine.errors.any? ? "error-field" : nil %>
   <br>
@@ -35,7 +33,11 @@
 
     <%= exercises_fields.label :description %>
     <%= exercises_fields.text_area :description %>
-    <br>
+    <br><br>
+
+    <%= exercises_fields.label :image %>
+    <%= exercises_fields.file_field :image %>
+    <br><br>
 
     <%= exercises_fields.fields_for :routine_exercises_attributes do |ref| %>
       <%= ref.label :sets %>

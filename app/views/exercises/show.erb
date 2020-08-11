@@ -1,6 +1,16 @@
 
 <a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <a href="<%= routine_path(@routine) %>"><%= @routine.name %></a> > <%= @exercise.name %>
 
+<br><br>
+
+
+<% if @exercise.image.attached? %>
+  <div class="image-container">
+    <%= image_tag(@exercise.image, width: "50%", height: "50%") %>
+  </div>
+<% end %>
+
+
 <h1><%= @exercise.name %></h1>
 <strong>Type: </strong><%= @exercise.exercise_type %> <br>
 

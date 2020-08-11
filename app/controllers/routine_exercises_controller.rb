@@ -1,6 +1,5 @@
 class RoutineExercisesController < ApplicationController
   def destroy
-    binding.pry
     @routine_exercise = RoutineExercise.find_by(routine_id: params[:routine_id], exercise_id: params[:id])
     @routine_exercise.destroy
     redirect_to routine_path(current_user.routines.find_by(id: params[:routine_id]))

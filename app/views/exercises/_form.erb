@@ -17,6 +17,10 @@
   <%= f.text_area :description %>
   <br>
 
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br><br>
+
   <%= f.fields_for :routine_exercises_attributes do |ref| %>
     <%= ref.label :sets %>
     <%= ref.number_field :sets, placeholder: "#{@exercise.routine_exercises.all.last.sets}", min: 0 %>

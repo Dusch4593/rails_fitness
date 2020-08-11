@@ -1,7 +1,7 @@
 class Exercise < ApplicationRecord
   has_many :routine_exercises, dependent: :destroy
   has_many :routines, through: :routine_exercises
-  # accepts_nested_attributes_for :routine_exercises, :reject_if => proc { |r_e| r_e[:sets].blank? }
+  has_one_attached :image
 
   validates :name, presence: true
 
@@ -11,6 +11,7 @@ class Exercise < ApplicationRecord
       new_exercise.name = exercise[:name]
       new_exercise.exercise_type = exercise[:exercise_type]
       new_exercise.description = exercise[:description]
+      new_exercise.image.attach(exercise[:image])
     end
   end
 
