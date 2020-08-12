@@ -1,6 +1,8 @@
-
-<a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <a href="<%= routine_path(@routine) %>"><%= @routine.name %></a> > <%= @exercise.name %>
-
+<div class="navbar">
+  <nav>
+    <a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <a href="<%= routine_path(@routine) %>"><%= @routine.name %></a> > <%= @exercise.name %>
+  </nav>
+</div>
 <br><br>
 
 <div class="exercise-container">
