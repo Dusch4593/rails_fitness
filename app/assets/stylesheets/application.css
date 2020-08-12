@@ -18,7 +18,7 @@
  }
 
  .main-content {
-   background-color: #FFFFFF;
+   background-color: #ffe5b4;
    border-radius: 0.5em;
    padding: 0.5em;
    margin: auto;
@@ -169,13 +169,27 @@
    opacity: 1;
  }
 
+ .exercise-container {
+   background-color: lightblue;
+   border-radius: 0.25em;
+   display: flex;
+   justify-content: space-around;
+ }
+
+ .exercise-image {
+   border-radius: 0.5em;
+   padding-top: 0.25em;
+   width: 50%;
+ }
+
 
 .crud_links {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 10em;
   margin: auto;
+  padding-top: 1em;
+  width: 10em;
 }
 
 .edit_link {

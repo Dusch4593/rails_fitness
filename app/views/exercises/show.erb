@@ -3,25 +3,25 @@
 
 <br><br>
 
+<div class="exercise-container">
+  <% if @exercise.image.attached? %>
+    <%= image_tag(@exercise.image, class: "exercise-image") %>
+  <% end %>
+  <div class="exercise-info">
+    <h1><%= @exercise.name %></h1>
+    <strong>Type: </strong><%= @exercise.exercise_type %> <br>
 
-<% if @exercise.image.attached? %>
-  <div class="image-container">
-    <%= image_tag(@exercise.image, width: "50%", height: "50%") %>
+    <p>
+      <%= @exercise.description %>
+    </p>
+
+    <strong>Sets: </strong><%= @routine_exercise.sets %>
+    <strong>Reps: </strong><%= @routine_exercise.reps %>
+    <br>
   </div>
-<% end %>
+</div>
 
 
-<h1><%= @exercise.name %></h1>
-<strong>Type: </strong><%= @exercise.exercise_type %> <br>
-
-<p>
-  <%= @exercise.description %>
-</p>
-
-<strong>Sets: </strong><%= @routine_exercise.sets %>
-<strong>Reps: </strong><%= @routine_exercise.reps %>
-
-<br>
 <div class="crud_links">
   <%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise), class: "edit_link" %> <br>
   <%= link_to "Delete Exercise", delete_routine_exercise_path(@routine, @exercise ), class: "delete_link", method: :delete %>
