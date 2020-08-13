@@ -45,6 +45,7 @@
  #home-page-links {
    display: flex;
    flex-direction: row;
+   justify-content: center;
    padding: 1em;
  }
 
