@@ -1,4 +1,11 @@
-<a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <%= @routine.name %>
+<a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <%= @routine.name %> <br />
+
+<% if @routine.image.attached? %>
+
+  <%= image_tag(@routine.image, class: "routine-image") %>
+
+<% end %>
+
 <h1><%= @routine.name %></h1>
 <h3>Times Per Week: <%= @routine.times_per_week %></h3>
 

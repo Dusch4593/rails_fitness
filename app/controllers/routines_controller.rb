@@ -19,15 +19,14 @@ class RoutinesController < ApplicationController
   def create
     @routine = current_user.routines.build(routine_params)
     if @routine.save && !routine_params["exercise_ids"].empty?
-
-
-
-      # If existing exercises were checked, loop through the ids and update routine_exercise object
+      # If existing exercises were selected in the checkbox list, loop through the ids and update routine_exercise object
       routine_params["exercise_ids"].each do |i|
         next if i.empty?
         @exercise = Exercise.find_by(id: i)
         @routine.routine_exercises.find_by(exercise_id: @exercise.id).update(sets: 0, reps: 0)
       end
+
+      binding.pry
 
       # Updates the existing routine_exercise object already linked with @routine and newly created exercise
       @routine.routine_exercises.last.update(sets: routine_params[:exercises_attributes][:routine_exercises_attributes][:sets])
@@ -67,6 +66,7 @@ class RoutinesController < ApplicationController
     params.require(:routine).permit(
       :name,
       :times_per_week,
+      :image,
       exercise_ids:[],
       exercises_attributes: [
         :id,

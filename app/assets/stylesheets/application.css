@@ -150,6 +150,12 @@
    opacity: 1;
  }
 
+ .routine-image {
+   border-radius: 0.5em;
+   padding-top: 0.25em;
+   width: 50%;
+ }
+
 
  #exercise_cards {
    display: flex;

@@ -12,6 +12,10 @@
   <%= f.number_field :times_per_week, min: 0 %>
   <br>
 
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br><br>
+
   <h3>Add Some Existing Exercises</h3>
   <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name do |e| %>
     <%= e.check_box %>

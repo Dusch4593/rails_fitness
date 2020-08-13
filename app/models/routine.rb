@@ -2,6 +2,7 @@ class Routine < ApplicationRecord
   belongs_to :user
   has_many :routine_exercises, dependent: :destroy
   has_many :exercises, through: :routine_exercises
+  has_one_attached :image
 
   validates :name, presence: true
 
@@ -23,6 +24,7 @@ class Routine < ApplicationRecord
       new_exercise.name = exercise[:name]
       new_exercise.exercise_type = exercise[:exercise_type]
       new_exercise.description = exercise[:description]
+      new_exercise.image.attach(exercise[:image]) if exercise[:image]
     end
   end
 end
