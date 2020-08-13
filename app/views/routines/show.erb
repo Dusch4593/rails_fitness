@@ -5,27 +5,32 @@
 </div>
 <br><br>
 
-<div class="routine-container"></div>
-
-<% if @routine.image.attached? %>
-
-  <%= image_tag(@routine.image, class: "routine-image") %>
-
-<% end %>
-
-<h1><%= @routine.name %></h1>
-<h3>Times Per Week: <%= @routine.times_per_week %></h3>
-
-<div id="exercise-cards">
-  <% @routine.exercises.each do |exercise| %>
-    <%= link_to exercise.name, routine_exercise_path(@routine, exercise), class: "exercise-card" %> <br>
-    <br>
+<div class="routine-container">
+  <% if @routine.image.attached? %>
+    <%= image_tag(@routine.image, class: "routine-image") %>
   <% end %>
-</div>
+
+  <div class="routine-info">
+    <h1><%= @routine.name %></h1>
+    <h3>Times Per Week: <%= @routine.times_per_week %></h3>
+
+    <div id="exercise-cards">
+      <% @routine.exercises.each do |exercise| %>
+        <div class="exercise-card">
+          <% if exercise.image.attached? %>
+              <%= link_to image_tag(exercise.image, class: "exercise-card-image"), routine_exercise_path(@routine, exercise) %>
+          <% end %>
+          <%= link_to exercise.name, routine_exercise_path(@routine, exercise) %>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <div class="crud-links">
+      <%= link_to "Edit Routine", edit_routine_path(@routine), class: "edit-link" %> <br>
+      <%= link_to "Delete Routine", @routine, class: "delete-link", method: :delete %>
+    </div>
+  </div>
+  <br>
 
 
-<br>
-<div class="crud-links">
-  <%= link_to "Edit Routine", edit_routine_path(@routine), class: "edit-link" %> <br>
-  <%= link_to "Delete Routine", @routine, class: "delete-link", method: :delete %>
 </div>
