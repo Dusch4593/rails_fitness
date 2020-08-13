@@ -1,4 +1,11 @@
-<a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <%= @routine.name %> <br />
+<div class="navbar">
+  <nav>
+    <a href="<%= routines_path %>"><%= current_user.name %>'s Routines</a> > <%= @routine.name %> <br />
+  </nav>
+</div>
+<br><br>
+
+<div class="routine-container"></div>
 
 <% if @routine.image.attached? %>
 
@@ -9,16 +16,16 @@
 <h1><%= @routine.name %></h1>
 <h3>Times Per Week: <%= @routine.times_per_week %></h3>
 
-<div id="exercise_cards">
+<div id="exercise-cards">
   <% @routine.exercises.each do |exercise| %>
-    <%= link_to exercise.name, routine_exercise_path(@routine, exercise), class: "exercise_card" %> <br>
+    <%= link_to exercise.name, routine_exercise_path(@routine, exercise), class: "exercise-card" %> <br>
     <br>
   <% end %>
 </div>
 
 
 <br>
-<div class="crud_links">
-  <%= link_to "Edit Routine", edit_routine_path(@routine), class: "edit_link" %> <br>
-  <%= link_to "Delete Routine", @routine, class: "delete_link", method: :delete %>
+<div class="crud-links">
+  <%= link_to "Edit Routine", edit_routine_path(@routine), class: "edit-link" %> <br>
+  <%= link_to "Delete Routine", @routine, class: "delete-link", method: :delete %>
 </div>

@@ -41,13 +41,13 @@
    padding: 0;
  }
 
- #home_page_links {
+ #home-page-links {
    display: flex;
    flex-direction: row;
    padding: 1em;
  }
 
- #signup_link {
+ #signup-link {
    background-color: #75B74F;
    color: #fff;
    padding: 0.5em;
@@ -58,11 +58,11 @@
    transition: 0.3s;
  }
 
- #signup_link:hover {
+ #signup-link:hover {
    opacity: 1;
  }
 
- #regular_login_link {
+ #regular-login-link {
    background-color: #7dbbe6;
    color: #fff;
    padding: 0.5em;
@@ -73,7 +73,7 @@
    transition: 0.3s;
  }
 
- #regular_login_link:hover {
+ #regular-login-link:hover {
    opacity: 1;
  }
 
@@ -103,7 +103,7 @@
   width: 10em;
 }
 
-#facebook_btn {
+#facebook-btn {
   background-color: #3b5998;
   color: #fff;
   padding: 0.4em;
@@ -111,7 +111,7 @@
   text-decoration: none;
 }
 
- #google_btn {
+ #google-btn {
    background-color: #db3236;
    color: #fff;
    padding: 0.4em;
@@ -119,7 +119,7 @@
    text-decoration: none;
  }
 
- #github_btn {
+ #github-btn {
    background-color: #7dbbe6;
    color: #fff;
    padding: 0.4em;
@@ -127,7 +127,7 @@
    text-decoration: none;
  }
 
- #routine_cards {
+ #routine-cards {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -135,7 +135,7 @@
    margin: auto;
  }
 
- .routine_card {
+ .routine-card {
    background-color: #3a3a3a;
    border: 2px solid black;
    border-radius: 5px;
@@ -146,7 +146,7 @@
    transition: 0.3s;
  }
 
- .routine_card:hover {
+ .routine-card:hover {
    opacity: 1;
  }
 
@@ -157,7 +157,7 @@
  }
 
 
- #exercise_cards {
+ #exercise-cards {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -165,7 +165,7 @@
    margin: auto;
  }
 
- .exercise_card {
+ .exercise-card {
    background-color: #ffb101;
    border: 2px solid black;
    border-radius: 5px;
@@ -176,7 +176,7 @@
    transition: 0.3s;
  }
 
- .exercise_card:hover {
+ .exercise-card:hover {
    opacity: 1;
  }
 
@@ -194,7 +194,7 @@
  }
 
 
-.crud_links {
+.crud-links {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -203,7 +203,7 @@
   width: 10em;
 }
 
-.edit_link {
+.edit-link {
   border-radius: 3px;
   border: 2px solid black;
   font-weight: bold;
@@ -215,11 +215,11 @@
   transition: 0.3s;
 }
 
-.edit_link:hover {
+.edit-link:hover {
   opacity: 1;
 }
 
-.delete_link {
+.delete-link {
   border-radius: 3px;
   border: 2px solid black;
   font-weight: bold;
@@ -231,12 +231,12 @@
   transition: 0.3s;
 }
 
-.delete_link:hover {
+.delete-link:hover {
   opacity: 1;
 }
 
 
-.submit_link {
+.submit-link {
   background-color: #75B74F;
   border: 1px solid black;
   border-radius: 3px;
@@ -250,6 +250,6 @@
   transition: 0.3s;
 }
 
-.submit_link:hover {
+.submit-link:hover {
   opacity: 1;
 }

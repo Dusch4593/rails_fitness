@@ -1,10 +1,10 @@
 <h1>Hey, <%= current_user.name %>!</h1>
-<%= link_to "Sign out", destroy_user_session_path, id: "signout_link", method: :delete %>
+<%= link_to "Sign out", destroy_user_session_path, id: "signout-link", method: :delete %>
 <br>
 <br>
 <br>
 
-<%= link_to "Create Routine", new_routine_path, class: "submit_link" %>
+<%= link_to "Create Routine", new_routine_path, class: "submit-link" %>
 
 
 <h4>Filter by: </h4>
@@ -31,8 +31,8 @@
 
 <h2>List of Routines</h2>
 
-<div id="routine_cards">
+<div id="routine-cards">
   <% @routines.each do |routine| %>
-    <%= link_to routine.name, routine, class: "routine_card" %> <br> <br>
+    <%= link_to routine.name, routine, class: "routine-card" %> <br> <br>
   <% end %>
 </div>
