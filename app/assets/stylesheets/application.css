@@ -14,8 +14,23 @@
  *= require_self
  */
 
+ html, body {
+   margin: 0;
+   height: 100%;
+ }
+
  body {
    text-align: center;
+   overflow: auto;
+ }
+
+ h1 {
+   margin: 0px;
+ }
+
+ .alert, .notice {
+   margin: 0px;
+   padding: 0px;
  }
 
  .navbar {
@@ -26,8 +41,13 @@
  .main-content {
    background-color: rgba(255, 229, 180, 0.45);
    border-radius: 0.5em;
-   padding: 0.5em;
    margin: auto;
+   padding: 0.5em;
+   height: 100%;
+   top:0px;
+   right:0px;
+   bottom:0px;
+   left:0px;
  }
 
 
@@ -140,7 +160,7 @@
    border-radius: 0.5em;
    margin: auto;
    padding-bottom: 0.5em;
-   width: 70%;
+   width: 50%;
  }
 
  #routine-cards {
@@ -169,7 +189,7 @@
  .routine-image {
    border-radius: 0.5em;
    padding-top: 0.25em;
-   width: 70%;
+   width: 50%;
  }
 
 
@@ -206,6 +226,9 @@
    border-radius: 0.25em;
    display: flex;
    justify-content: space-around;
+   margin: auto;
+   padding: 0.5em;
+   width: 75%;
  }
 
  .exercise-image {
