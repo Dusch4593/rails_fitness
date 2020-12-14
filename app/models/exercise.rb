@@ -17,8 +17,9 @@ class Exercise < ApplicationRecord
 
 
   def routine_exercises_attributes=(routine_exercise)
-    if !routine_exercise[:sets].blank? && !routine_exercise[:reps].blank?
-      new_routine_exercise = self.routine_exercises.find_by(exercise_id: self.id)
+    if !routine_exercise[:sets].blank? || !routine_exercise[:reps].blank?
+      routine_id = routine_exercise["routine_id"].to_i
+      new_routine_exercise = self.routine_exercises.find_by(exercise_id: self.id, routine_id: routine_id)
       new_routine_exercise.update(sets: routine_exercise[:sets], reps: routine_exercise[:reps])
     end
   end

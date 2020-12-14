@@ -19,11 +19,11 @@ class Routine < ApplicationRecord
   end
 
   def exercises_attributes=(exercise)
-    if exercise[:name] != "" && exercise[:exercise_type] != "" && exercise[:description] != ""
+    if !exercise[:name].blank?
       new_exercise = self.exercises.build
       new_exercise.name = exercise[:name]
-      new_exercise.exercise_type = exercise[:exercise_type]
-      new_exercise.description = exercise[:description]
+      new_exercise.exercise_type = exercise[:exercise_type] if exercise[:exercise_type]
+      new_exercise.description = exercise[:description] if exercise[:description]
       new_exercise.image.attach(exercise[:image]) if exercise[:image]
     end
   end

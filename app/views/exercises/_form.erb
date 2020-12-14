@@ -5,6 +5,8 @@
 
 <%= form_with model: exercise, local: true do |f| %>
   <%= f.hidden_field :routine_id, value: params[:routine_id] %>
+
+
   <%= f.label :name %>
   <%= f.text_field :name, class: exercise.errors.any? ? "error-field" : nil %>
   <br>
@@ -22,13 +24,13 @@
   <br><br>
 
   <%= f.fields_for :routine_exercises_attributes do |ref| %>
+    <%= ref.hidden_field :routine_id, value: params[:routine_id] %>
+
     <%= ref.label :sets %>
-    <%= ref.number_field :sets, placeholder: "#{@exercise.routine_exercises.all.last.sets}", min: 0 %>
+    <%= ref.number_field :sets, placeholder: "#{@routine_exercise.sets}", min: 0 %>
     <br>
-
     <%= ref.label :reps %>
-    <%= ref.number_field :reps, placeholder: "#{@exercise.routine_exercises.all.last.reps}", min: 0 %>
-
+    <%= ref.number_field :reps, placeholder: "#{@routine_exercise.reps}" , min: 0 %>
     <br>
   <% end %>
   <%= f.submit class: "submit-link" %>

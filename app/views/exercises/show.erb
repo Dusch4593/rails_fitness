@@ -20,11 +20,10 @@
     <strong>Sets: </strong><%= @routine_exercise.sets %>
     <strong>Reps: </strong><%= @routine_exercise.reps %>
     <br>
+
+    <div class="crud-links">
+      <%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise), class: "edit-link" %> <br>
+      <%= link_to "Delete Exercise", delete_routine_exercise_path(@routine, @exercise ), class: "delete-link", method: :delete %>
+    </div>
   </div>
-</div>
-
-
-<div class="crud-links">
-  <%= link_to "Edit Exercise", edit_routine_exercise_path(@routine, @exercise), class: "edit-link" %> <br>
-  <%= link_to "Delete Exercise", delete_routine_exercise_path(@routine, @exercise ), class: "delete-link", method: :delete %>
 </div>

@@ -38,8 +38,12 @@
    padding: 1em;
  }
 
+ .main-container {
+   height: inherit;
+ }
+
  .main-content {
-   background-color: rgba(255, 229, 180, 0.45);
+   background-color: #ff4500;
    border-radius: 0.5em;
    margin: auto;
    padding: 0.5em;
@@ -48,6 +52,14 @@
    right:0px;
    bottom:0px;
    left:0px;
+ }
+
+ .welcome-container {
+   height: inherit;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
  }
 
 

@@ -12,28 +12,28 @@ class RoutinesController < ApplicationController
 
   def new
     @routine = current_user.routines.build
-    @exercise = @routine.exercises.build
-    @routine_exercise = @exercise.routine_exercises.build
   end
 
   def create
     @routine = current_user.routines.build(routine_params)
-    if @routine.save && !routine_params["exercise_ids"].empty?
-      # If existing exercises were selected in the checkbox list, loop through the ids and update routine_exercise object
-      routine_params["exercise_ids"].each do |i|
-        next if i.empty?
-        @exercise = Exercise.find_by(id: i)
-        @routine.routine_exercises.find_by(exercise_id: @exercise.id).update(sets: 0, reps: 0)
+    if @routine.save
+      if !routine_params["exercise_ids"].drop(1).empty?
+        # If existing exercises were selected in the checkbox list, loop through the ids and update routine_exercise object
+        routine_params["exercise_ids"].each do |i|
+          next if i.empty?
+          @exercise = Exercise.find_by(id: i)
+          @routine.routine_exercises.find_by(exercise_id: @exercise.id).update(sets: 0, reps: 0)
+        end
       end
 
-      binding.pry
-
-      # Updates the existing routine_exercise object already linked with @routine and newly created exercise
-      @routine.routine_exercises.last.update(sets: routine_params[:exercises_attributes][:routine_exercises_attributes][:sets])
-      @routine.routine_exercises.last.update(reps: routine_params[:exercises_attributes][:routine_exercises_attributes][:reps])
+      if !routine_params["exercises_attributes"]["name"].blank?
+        # Updates the existing routine_exercise object already linked with @routine and newly created exercise
+        @routine.routine_exercises.last.update(sets: routine_params[:exercises_attributes][:routine_exercises_attributes][:sets])
+        @routine.routine_exercises.last.update(reps: routine_params[:exercises_attributes][:routine_exercises_attributes][:reps])
+      end
       redirect_to routines_path
     else
-      render :new
+      redirect_to new_routine_path
     end
   end
 
