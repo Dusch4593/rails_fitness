@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pry'
 
 gem 'dotenv-rails'
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
