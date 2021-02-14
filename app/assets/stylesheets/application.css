@@ -43,8 +43,7 @@
  }
 
  .main-content {
-   background-color: #ff4500;
-   border-radius: 0.5em;
+   background-color: #ff9090;
    margin: auto;
    padding: 0.5em;
    height: 100%;
@@ -60,6 +59,26 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+ }
+
+ .sign-in-form {
+  border: 1px solid;
+  border-radius: 0.5em;
+  margin: auto;
+  padding: 1em;
+  width: 18em;
+ }
+
+ .text-entry {
+  width: 100%;
+  height: 2em;
+ }
+
+ .login-btn {
+  border-radius: 0.5em;
+  cursor: pointer;
+  height: 5em;
+  width: 100%;
  }
 
 
@@ -135,31 +154,36 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 10em;
+  width: 18em;
+}
+
+.third-party-btn {
+  cursor: pointer;
+  padding: 1.4em;
+  font-size: medium;
+  border-radius: 0.5em;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.third-party-btn:hover {
+
 }
 
 #facebook-btn {
   background-color: #3b5998;
   color: #fff;
-  padding: 0.4em;
-  border-radius: 2.5px;
-  text-decoration: none;
 }
 
  #google-btn {
    background-color: #db3236;
    color: #fff;
-   padding: 0.4em;
-   border-radius: 2.5px;
-   text-decoration: none;
  }
 
  #github-btn {
    background-color: #7dbbe6;
    color: #fff;
-   padding: 0.4em;
-   border-radius: 2.5px;
-   text-decoration: none;
  }
 
  .routine-container {

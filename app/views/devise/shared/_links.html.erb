@@ -21,15 +21,15 @@
   <br>
   <div id="login-links">
     <%= form_tag(user_facebook_omniauth_authorize_path, method: "post") do%>
-      <button type="submit" id="facebook-btn">Sign in with Facebook</button>
+      <button type="submit" id="facebook-btn" class="third-party-btn">Sign in with Facebook</button>
     <% end%>
 
     <%= form_tag(user_google_oauth2_omniauth_authorize_path, method: "post") do%>
-      <button type="submit" id="google-btn">Sign in with Google</button>
+      <button type="submit" id="google-btn" class="third-party-btn">Sign in with Google</button>
     <% end%>
 
     <%= form_tag(user_github_omniauth_authorize_path, method: "post") do%>
-      <button type="submit" id="github-btn">Sign in with GitHub</button>
+      <button type="submit" id="github-btn" class="third-party-btn">Sign in with GitHub</button>
     <% end%>
   </div>
 <% end %>
