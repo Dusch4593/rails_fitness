@@ -30,6 +30,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
+gem "omniauth-rails_csrf_protection"
 gem 'activerecord-session_store'
 
 # Use Active Storage variant

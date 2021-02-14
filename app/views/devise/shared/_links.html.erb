@@ -20,8 +20,16 @@
 <%- if devise_mapping.omniauthable? %>
   <br>
   <div id="login-links">
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, id: "facebook-btn" %> <br>
-    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, id: "google-btn" %> <br>
-    <%= link_to "Sign in with GitHub", user_github_omniauth_authorize_path, id: "github-btn" %> <br>
+    <%= form_tag(user_facebook_omniauth_authorize_path, method: "post") do%>
+      <button type="submit" id="facebook-btn">Sign in with Facebook</button>
+    <% end%>
+
+    <%= form_tag(user_google_oauth2_omniauth_authorize_path, method: "post") do%>
+      <button type="submit" id="google-btn">Sign in with Google</button>
+    <% end%>
+
+    <%= form_tag(user_github_omniauth_authorize_path, method: "post") do%>
+      <button type="submit" id="github-btn">Sign in with GitHub</button>
+    <% end%>
   </div>
 <% end %>
