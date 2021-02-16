@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatironFitnessRailsApp</title>
+    <title>Rails Fitness</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +13,20 @@
     <div class="main-container">
       <%= render "layouts/alerts" %>
       <div class="main-content">
-        <%= yield %>
+        <% if user_signed_in? %>
+          <nav class="nav-bar">
+            <h3 class="nav-header">Hi, <%= current_user.name.split(' ')[0] %>!</h3>
+            <h2 class="app-title">Rails Fitness</h2>
+            <ul class="nav-links">
+              <li><%= link_to "Routines", routines_path %></li>
+              <li><%= link_to "New Routine", new_routine_path %></li>
+              <li></li>
+            </ul>
+          </nav>
+          <%= yield %>
+        <% else %>
+          <%= yield %>
+        <% end %>
       </div>
     </div>
 
