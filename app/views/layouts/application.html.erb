@@ -20,7 +20,7 @@
             <ul class="nav-links">
               <li><%= link_to "Routines", routines_path %></li>
               <li><%= link_to "New Routine", new_routine_path %></li>
-              <li></li>
+              <li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </nav>
           <%= yield %>
