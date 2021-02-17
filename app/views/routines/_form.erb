@@ -2,58 +2,57 @@
   <h5 class="error"><%= routine.errors.full_messages.to_sentence %></h5>
 <% end %>
 
-<%= form_with model: routine, local: true do |f| %>
+<div class="routine-form">
+  <%= form_with model: routine, local: true do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: routine.errors.any? ? "error-field" : nil %>
-  <br>
+    <%= f.text_field :name, class: "#{routine.errors.any? ? "error-field" : nil} text-entry", placeholder: "#{:name.capitalize} of routine"%>
+    <br><br>
 
-  <%= f.label :times_per_week %>
-  <%= f.number_field :times_per_week, min: 0 %>
-  <br>
+    <%= f.number_field :times_per_week, min: 0 , class: "text-entry", placeholder: "Times per week"%>
+    <br><br>
 
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <br><br>
+    <%= f.label "Add an Image For Your Routine" %>
+    <%= f.file_field :image %>
+    <br><br>
 
-  <h3>Add Some Existing Exercises</h3>
-  <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name do |e| %>
-    <%= e.check_box %>
-    <%= e.object.name %>
+    <div class="new-exercise-container">
+      <h3>Add Some Existing Exercises</h3>
+      <div class="existing-exercises">
+        <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name do |e| %>
+          <%= e.check_box %>
+          <%= e.object.name %>
+          <br>
+        <% end %>
+      </div>
+    </div>
     <br>
+
+
+    <h3>Create a New Exercise for the Routine</h3>
+    <%= f.fields_for :exercises_attributes do |exercises_fields| %>
+      <%= exercises_fields.text_field :name, class: "text-entry", placeholder: "#{:name.capitalize} of exercise"%>
+      <br><br>
+
+      <%= exercises_fields.text_field :exercise_type, class: "text-entry", placeholder: :exercise_type%>
+      <br><br>
+
+      <%= exercises_fields.text_area :description, class: "text-entry", placeholder: :description%>
+      <br><br>
+
+      <%= exercises_fields.label :image %>
+      <%= exercises_fields.file_field :image %>
+      <br><br>
+
+      <%= exercises_fields.fields_for :routine_exercises_attributes do |ref| %>
+        <%= ref.number_field :sets, min: 0, class: "text-entry", placeholder: :sets %>
+        <br><br>
+
+        <%= ref.number_field :reps, min: 0, class: "text-entry", placeholder: :reps %>
+        <br><br>
+      <% end %>
   <% end %>
-  <br>
 
 
-  <h3>Create a New Exercise for the Routine</h3>
-  <%= f.fields_for :exercises_attributes do |exercises_fields| %>
-    <%= exercises_fields.label :name %>
-    <%= exercises_fields.text_field :name %>
-    <br>
-
-    <%= exercises_fields.label :exercise_type %>
-    <%= exercises_fields.text_field :exercise_type %>
-    <br>
-
-    <%= exercises_fields.label :description %>
-    <%= exercises_fields.text_area :description %>
-    <br><br>
-
-    <%= exercises_fields.label :image %>
-    <%= exercises_fields.file_field :image %>
-    <br><br>
-
-    <%= exercises_fields.fields_for :routine_exercises_attributes do |ref| %>
-      <%= ref.label :sets %>
-      <%= ref.number_field :sets, min: 0 %>
-      <br>
-
-      <%= ref.label :reps %>
-      <%= ref.number_field :reps, min: 0 %>
-      <br>
-    <% end %>
-<% end %>
-
-
-  <%= f.submit class: "submit-link" %>
-<% end %>
+    <%= f.submit class: "submit-link" %>
+  <% end %>
+</div>

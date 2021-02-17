@@ -1,4 +1,7 @@
-<%= link_to "#{current_user.name}'s Routines", routines_path %>
-
-<h1>New Routine</h1>
-<%= render "routines/form", routine: @routine %>
+<div class="new-routine-container">
+    <h1>New Routine</h1>
+    <div class="new-routine-flex">
+        <%= render "routines/form", routine: @routine, class: "routine-form-container" %>
+        <%= image_tag("new_routine_image.jpg", class: "new-routine-hero-image")%>
+    </div>
+</div>

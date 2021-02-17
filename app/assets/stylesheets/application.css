@@ -15,9 +15,10 @@
  */
 
  html, body {
+   font-family: "Courier", sans-serif;
    padding: 0;
    margin: 0;
-   height: 100%;
+   text-align: center;
  }
 
  body {
@@ -34,7 +35,7 @@
  }
 
  .main-container {
-   height: inherit;
+   height: 100%;
  }
 
  .main-content {
@@ -218,6 +219,16 @@
    color: #fff;
  }
 
+ .routine-form {
+   background-color: #b0c4de;
+   border: 1px solid;
+   border-radius: 0.5em;
+   grid-area: routine-form;
+   margin: 1em;
+   padding: 1em;
+   width: 50%;
+ }
+
  .routines-section {
    overflow: hidden;
  }
@@ -225,6 +236,47 @@
  .routine-container {
    text-align: center;
  }
+
+ .new-routine-flexbox {
+  display: flex;
+ }
+
+ @media only screen and (max-width: 800px) {
+   .new-routine-flexbox {
+     display: grid;
+     grid-template-areas: "hero-image"
+                          "routine-form";
+   }
+
+   body .new-routine-hero-image {
+     height: auto;
+   }
+
+   body .routine-form {
+     margin: auto;
+     width: 75%;
+   }
+ }
+
+ .new-routine-hero-image {
+   border-radius: 0.5em;
+   grid-area: hero-image;
+   height: 50%;
+   margin: 1em auto;
+   max-width: 50%;
+ }
+
+ .existing-exercises {
+   margin: auto;
+   text-align: left;
+ }
+
+ .new-exercise-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
 
  .routine-info {
    background-color: skyblue;
