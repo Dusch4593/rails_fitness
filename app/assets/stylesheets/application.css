@@ -15,12 +15,12 @@
  */
 
  html, body {
+   padding: 0;
    margin: 0;
    height: 100%;
  }
 
  body {
-   text-align: center;
    overflow: auto;
  }
 
@@ -54,7 +54,12 @@
    justify-content: center;
  }
 
+ .welcome-header {
+   text-align: center;
+ }
+
  .app-title {
+    text-align: center;
    width: 50%;
  }
 
@@ -190,10 +195,12 @@
   text-decoration: none;
   width: 100%;
   margin-bottom: 1em;
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 .third-party-btn:hover {
-
+  opacity: 1;
 }
 
 #facebook-btn {
@@ -209,6 +216,10 @@
  #github-btn {
    background-color: #7dbbe6;
    color: #fff;
+ }
+
+ .routines-section {
+   overflow: hidden;
  }
 
  .routine-container {

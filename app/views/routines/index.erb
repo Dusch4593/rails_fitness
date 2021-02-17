@@ -1,38 +1,34 @@
-<h1>Hey, <%= current_user.name %>!</h1>
-<%= link_to "Sign out", destroy_user_session_path, id: "signout-link", method: :delete %>
-<br>
-<br>
-<br>
-
-<%= link_to "Create Routine", new_routine_path, class: "submit-link" %>
+<div class="routines-section">
+  <%= link_to " + ", new_routine_path, class: "submit-link" %>
 
 
-<h4>Filter by: </h4>
-<%= form_tag routines_path, method: "get" do %>
-  <%= select_tag "routine", options_for_select(["Beginner-Level", "Mid-Level", "Intense-Level"]), include_blank: true %>
-  <%= submit_tag "Filter" %>
-<% end %>
-
-<% if !params[:routine].blank? %>
-  <% if params[:routine] == "Beginner-Level" %>
-    <% @routines = Routine.beginner_level_routines %>
-    <h3>Beginner-Level Routines</h3>
-  <% elsif params[:routine] == "Mid-Level" %>
-    <% @routines = Routine.mid_level_routines %>
-    <h3>Mid-Level Routines</h3>
-  <% elsif params[:routine] == "Intense-Level" %>
-    <% @routines = Routine.intense_level_routines %>
-    <h3>Intense-Level Routines</h3>
+  <p>Filter by: </p>
+  <%= form_tag routines_path, method: "get" do %>
+    <%= select_tag "routine", options_for_select(["Beginner-Level", "Mid-Level", "Intense-Level"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
   <% end %>
-<% end %>
 
-
-<br>
-
-<h2>List of Routines</h2>
-
-<div id="routine-cards">
-  <% @routines.each do |routine| %>
-    <%= link_to routine.name, routine, class: "routine-card" %> <br> <br>
+  <% if !params[:routine].blank? %>
+    <% if params[:routine] == "Beginner-Level" %>
+      <% @routines = Routine.beginner_level_routines %>
+      <h3>Beginner-Level Routines</h3>
+    <% elsif params[:routine] == "Mid-Level" %>
+      <% @routines = Routine.mid_level_routines %>
+      <h3>Mid-Level Routines</h3>
+    <% elsif params[:routine] == "Intense-Level" %>
+      <% @routines = Routine.intense_level_routines %>
+      <h3>Intense-Level Routines</h3>
+    <% end %>
   <% end %>
+
+
+  <br>
+
+  <h2>List of Routines</h2>
+
+  <div id="routine-cards">
+    <% @routines.each do |routine| %>
+      <%= link_to routine.name, routine, class: "routine-card" %> <br> <br>
+    <% end %>
+  </div>
 </div>
